@@ -115,7 +115,7 @@ def run(progress = True, verbose = False, loadFile=False,printtweets=False,cause
         #dates = (["../2020-04-{} Coronavirus Tweets.csv".format(i) for i in range(10,16)]+["../2020-04-0{} Coronavirus Tweets.csv".format(i) for i in range(1,10)])        
         check_classifier.run(verbose = verbose)
 if __name__ == '__main__':
-    run(loadFile=False,printtweets=True,produceResult=True, chunkScatter=True, causeFilename="((cm,-0.4)=0.84)causeSunWed",outputDivider=900)
+    run(loadFile=True,printtweets=True,produceResult=True, chunkScatter=True, causeFilename="((cm,-0.4)=0.84)causeSunWed",outputDivider=900)
     
 """
 The [loadFile] field determines whether you are saving the causes or loading the causes.
@@ -127,14 +127,14 @@ The [produceResult] field determines whether the tweets counts(ex: Anger : 3000,
     -This only takes effect when [loadFile] is True.
     -It should be put to False if you only want the accuracy result.
     
+The [chunkScatter] field determines whether to plot the word scatters or not.
+    -This only takes effect when [loadFile] is False.
+    
 The [causeFilename] field is the name of the file you are going to save/load.
     -BE CAREFUL not to overload the existing file.(Don't worry if you do, it's recoverable.)
     
 The [outputDivider] is used to deminish the number of example tweets(when printtweets = True).
-    -If set to 900, 9000 tweets result will only show top 10 tweets)
+    -If set to 900, 9000 tweets result will only show top 10 tweets
     
-The [chunkScatter] field determines whether to plot the word scatters or not.
-    -This only takes effect when [loadFile] is True.
-
 To test out different cause feedback settings, adjust fb(for feedback causes) and scoreFactor on line 65 and 66.
 """

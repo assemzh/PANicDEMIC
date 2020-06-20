@@ -20,7 +20,7 @@ def run(num_samples = 30000, num_sentences = 10, outDeminish=4000,
         printtweets=True, feedback=[]
         ):
         # the list "avoid" contains manual filtering data
-        avoid = ['...',"n't",'https']
+        avoid = ['...',"n't",'https',"'re","amp"]
         data_list = []
         for date in dates:
                 data_list.append(pd.read_csv(date, header=None, engine='python', skiprows=1, encoding = "utf-8"))
