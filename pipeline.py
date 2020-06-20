@@ -95,7 +95,6 @@ def run(progress = True, verbose = False, loadFile=False,printtweets=False,cause
             # If you don't have them, set produceResult = False.
             for d in dateChunks:
                 check.run(dates=d,verbose=False,
-                          printtweets=printtweets,
                           outDeminish=outputDivider,
                           feedback=fb)
             # Sidenote! The return of check is the cause chunks in list form from the dataset.
@@ -115,7 +114,7 @@ def run(progress = True, verbose = False, loadFile=False,printtweets=False,cause
         #dates = (["../2020-04-{} Coronavirus Tweets.csv".format(i) for i in range(10,16)]+["../2020-04-0{} Coronavirus Tweets.csv".format(i) for i in range(1,10)])        
         check_classifier.run(verbose = verbose)
 if __name__ == '__main__':
-    run(loadFile=True,printtweets=True,produceResult=True, chunkScatter=True, causeFilename="((cm,-0.4)=0.84)causeSunWed",outputDivider=900)
+    run(verbose=True,loadFile=False,printtweets=True,produceResult=False, chunkScatter=True, causeFilename="((cm,-0.4)=0.84)causeSunWed",outputDivider=900)
     
 """
 The [loadFile] field determines whether you are saving the causes or loading the causes.
