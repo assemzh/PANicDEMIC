@@ -24,7 +24,7 @@ def run(num_samples = 30000, num_sentences = 10, outDeminish=4000,
         data_list = []
         for date in dates:
                 data_list.append(pd.read_csv(date, header=None, engine='python', skiprows=1, encoding = "utf-8"))
-        data = map(lambda df: list(df[4][df[21] == 'en']), data_list)
+        data = map(lambda df: list(df[4][df[21] == 'en'][df[11]>90000]), data_list)
         # map(fun, iterable) returns function returns a map object(an iterator) of the results
         # after applying the given function to each item of a given iterable
 

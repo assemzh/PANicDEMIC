@@ -72,17 +72,17 @@ def run(progress = True, verbose = False, loadFile=False,printtweets=False,cause
         #This part produces result(ex: 03-00 - Anger:4000, Fear: 1000, ...).
         if loadFile and produceResult:
             dateChunks=[# weekly analysis
-                ["../2020-03-00 Coronavirus Tweets (pre 2020-03-12).csv"],
-                ["../2020-03-12 Coronavirus Tweets.csv"],
-                ["../2020-03-15 Coronavirus Tweets.csv"],
-                ["../2020-03-00 Coronavirus Tweets (pre 2020-03-12).csv"]+["../2020-03-12 Coronavirus Tweets.csv"]+["../2020-03-15 Coronavirus Tweets.csv"],
-                ["../2020-03-20 Coronavirus Tweets.csv"],
-                ["../2020-03-25 Coronavirus Tweets.csv"],
-                ["../2020-03-28 Coronavirus Tweets.csv"],
-                ["../2020-03-29 Coronavirus Tweets.csv"],
-                ["../2020-03-25 Coronavirus Tweets.csv","../2020-03-28 Coronavirus Tweets.csv","../2020-03-29 Coronavirus Tweets.csv"],
-                ["../2020-03-30 Coronavirus Tweets.csv","../2020-03-31 Coronavirus Tweets.csv"]
-                +["../2020-04-0{} Coronavirus Tweets.csv".format(i) for i in range(1,6)],
+                #["../2020-03-00 Coronavirus Tweets (pre 2020-03-12).csv"],
+                #["../2020-03-12 Coronavirus Tweets.csv"],
+                #["../2020-03-15 Coronavirus Tweets.csv"],
+                #["../2020-03-00 Coronavirus Tweets (pre 2020-03-12).csv"]+["../2020-03-12 Coronavirus Tweets.csv"]+["../2020-03-15 Coronavirus Tweets.csv"],
+                #["../2020-03-20 Coronavirus Tweets.csv"],
+                #["../2020-03-25 Coronavirus Tweets.csv"],
+                #["../2020-03-28 Coronavirus Tweets.csv"],
+                #["../2020-03-29 Coronavirus Tweets.csv"],
+                #["../2020-03-25 Coronavirus Tweets.csv","../2020-03-28 Coronavirus Tweets.csv","../2020-03-29 Coronavirus Tweets.csv"],
+                #["../2020-03-30 Coronavirus Tweets.csv","../2020-03-31 Coronavirus Tweets.csv"]
+                #+["../2020-04-0{} Coronavirus Tweets.csv".format(i) for i in range(1,6)],
                 ["../2020-04-0{} Coronavirus Tweets.csv".format(i) for i in range(6,10)]
                 +["../2020-04-{} Coronavirus Tweets.csv".format(i) for i in range(10,13)],
                 ["../2020-04-{} Coronavirus Tweets.csv".format(i) for i in range(13,20)],
@@ -96,7 +96,7 @@ def run(progress = True, verbose = False, loadFile=False,printtweets=False,cause
             for d in dateChunks:
                 check.run(dates=d,verbose=False,
                           outDeminish=outputDivider,
-                          feedback=fb)
+                          feedback=fb,num_samples=3375,printtweets=printtweets)
             # Sidenote! The return of check is the cause chunks in list form from the dataset.
             #       -go to a for loop in check_classifier on line 106 ("for check in checks") for more info.
             #       -the check in checks are tweets as list in each emotions.(The exact format can be learned from line 81 to 96 check_classifier.py)
@@ -114,13 +114,12 @@ def run(progress = True, verbose = False, loadFile=False,printtweets=False,cause
         #dates = (["../2020-04-{} Coronavirus Tweets.csv".format(i) for i in range(10,16)]+["../2020-04-0{} Coronavirus Tweets.csv".format(i) for i in range(1,10)])        
         check_classifier.run(verbose = verbose)
 if __name__ == '__main__':
-    run(verbose=True,loadFile=False,printtweets=True,produceResult=False, chunkScatter=True, causeFilename="((cm,-0.4)=0.84)causeSunWed",outputDivider=900)
+    run(verbose=False,loadFile=True,printtweets=True,produceResult=True, chunkScatter=False, causeFilename="((cm,-0.4)=0.84)causeSunWed",outputDivider=900)
     
 """
 The [loadFile] field determines whether you are saving the causes or loading the causes.
 
 The [printtweets] field determines whether you want the example tweets when doing cause saving.
-    -This only takes effect when [loadFile] is False.
     
 The [produceResult] field determines whether the tweets counts(ex: Anger : 3000, Fear : 1000...) will be displayed.
     -This only takes effect when [loadFile] is True.

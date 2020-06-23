@@ -38,11 +38,11 @@ def _create_bow(sentences, vectorizer=None, msg_prefix="\n", vocab = None):
     print("{} Bow construction".format(msg_prefix))
     if vectorizer is None:
         if vocab: 
-            #vectorizer = TfidfVectorizer(vocabulary = vocab)
-            vectorizer = CountVectorizer(vocabulary = vocab)
+            vectorizer = TfidfVectorizer(vocabulary = vocab)
+            #vectorizer = CountVectorizer(vocabulary = vocab)
         else:
-            #vectorizer = TfidfVectorizer(stop_words = 'english', min_df = 3, max_df = 0.95, max_features = 2000)
-            vectorizer = CountVectorizer(stop_words = 'english', min_df = 3, max_df = 0.95, max_features = 2000)
+            vectorizer = TfidfVectorizer(stop_words = 'english', min_df = 3, max_df = 0.95, max_features = 2000)
+            #vectorizer = CountVectorizer(stop_words = 'english', min_df = 3, max_df = 0.95, max_features = 2000)
         sentence_vectors = vectorizer.fit_transform(sentences)
     else:
         sentence_vectors = vectorizer.transform(sentences)
