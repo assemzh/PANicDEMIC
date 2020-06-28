@@ -12,4 +12,4 @@ Extractor: return scored features based on Bayesian posterior probability
 
 Model: bag-of-word, Tf-idf vectorization
 
-[![Watch the video]](https://www.youtube.com/watch?v=1AEVI7UAa6w&t=136s)
+[![Watch the video](https://img.youtube.com/vi/1AEVI7UAa6w/hqdefault.jpg)](https://www.youtube.com/watch?v=1AEVI7UAa6w&t=136s)
