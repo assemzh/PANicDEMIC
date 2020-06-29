@@ -1,3 +1,6 @@
+If you want to run our classifier, you'll need to get datas from [Kag](https://www.kaggle.com/smid80/coronavirus-covid19-tweets-early-april)[gle](https://www.kaggle.com/smid80/coronavirus-covid19-tweets-late-april)
+The main code you should use is the pipeline.py, but you might need to adjust classify.py and extractor.py
+
 # PANicDEMIC
 Detecting Emotions on COVID-19 Over Time Using NLP
 
